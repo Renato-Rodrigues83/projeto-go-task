@@ -1,0 +1,30 @@
+<div class="p-3 bg-[#FAFAFA] rounded-xl cursor-grab flex flex-col gap-3">
+  <div class="flex gap-1">
+    <p class="font-semibold" [title]="task.name">
+      {{ task.name.length < 20 ? task.name : (task.name | slice:0:20) + '...' }}
+    </p>
+    <img
+      class="self-start cursor-pointer ml-auto"
+      src="images/icon-delete.svg"
+      (click)="deleteTask()"
+    />
+  </div>
+  <p class="font-light text-sm" [title]="task.description">
+    {{ task.description.length < 25 ? task.description : (task.description | slice:0:25) + '...' }}
+  </p>
+  <div class="flex items-center gap-1">
+    <img src="images/icon-comments.svg" />
+    <p
+      class="font-semibold text-xs text-[#2A89EF] underline underline-offset-2 cursor-pointer"
+      (click)="openTaskCommentsModal()"
+    >
+      {{ task.comments.length}} Comentários
+    </p>
+    <p
+      class="font-semibold text-xs text-[#2A89EF] underline underline-offset-2 cursor-pointer ml-auto"
+      (click)="openEditTaskModal()"
+    >
+      Editar
+    </p>
+  </div>
+</div>

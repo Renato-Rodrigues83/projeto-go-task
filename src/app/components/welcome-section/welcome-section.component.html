@@ -1,0 +1,27 @@
+<div
+  class="rounded-2xl p-8 bg-[#ECF4FE] flex flex-col gap-7 sm:flex-row-reverse sm:justify-between sm:items-center"
+>
+  <div>
+    <img src="images/icon-hand-coding.svg" />
+  </div>
+  <div class="flex flex-col gap-4">
+    <div>
+      <h1 class="font-bold text-2xl">
+        Bem vindo(a) de volta, <br />
+        Username
+      </h1>
+      <h3 class="font-medium opacity-80 text-[#374151]">
+        Não se esqueça de atualizar as tarefas
+      </h3>
+    </div>
+    <div>
+      <button
+        class="bg-[#2A89EF] shadow-md shadow-blue-500/50 py-3 px-4 rounded-xl text-white text-sm font-semibold text-center flex gap-2 cursor-pointer active:translate-y-1 transition-transform duration-75"
+        (click)="openNewTaskModal()"
+      >
+        <img src="images/icon-plus-circle.svg" alt="" />
+        Criar uma tarefa
+      </button>
+    </div>
+  </div>
+</div>

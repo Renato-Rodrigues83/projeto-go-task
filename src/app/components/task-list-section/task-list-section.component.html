@@ -1,0 +1,86 @@
+@let todoTasks = (this._taskService.todoTasks | async) ?? [];
+@let doingTasks = (this._taskService.doingTasks | async) ?? [];
+@let doneTasks = (this._taskService.doneTasks | async) ?? [];
+
+@let noTasksCreated = todoTasks.length === 0 && doingTasks.length === 0 && doneTasks.length === 0;
+
+<div class="p-3 mb-6 flex overflow-x-auto scrollbar-hidden">
+  <!-- Coluna A Fazer-->
+  <div
+    class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6"
+    id="todo-column"
+    cdkDropList
+    #todoListCdkDropList="cdkDropList"
+    [cdkDropListData]="todoTasks"
+    [cdkDropListConnectedTo]="[doingListCdkDropList, doneListCdkDropList]"
+    (cdkDropListDropped)="onCardDrop($event)"
+  >
+    <div class="py-2 border-b border-[#D1D5D8] flex items-center gap-1">
+      <h1 class="font-bold">A fazer</h1>
+      <span
+        class="text-xs font-semibold text-white bg-black py-1 px-2 rounded-xl"
+        >{{todoTasks.length}}</span
+      >
+    </div>
+    <div class="flex flex-col gap-4">
+      @for (todoTask of todoTasks; track todoTask.id) {
+        <app-task-card cdkDrag [cdkDragData]="todoTask" [task]="todoTask"/>
+      }
+    </div>
+  </div>
+  <!-- Coluna Fazendo -->
+  <div
+    class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6"
+    id="doing-column"
+    cdkDropList
+    #doingListCdkDropList="cdkDropList"
+    [cdkDropListData]="doingTasks"
+    [cdkDropListConnectedTo]="[todoListCdkDropList, doneListCdkDropList]"
+    (cdkDropListDropped)="onCardDrop($event)"
+  >
+    <div class="py-2 border-b border-[#D1D5D8] flex items-center gap-1">
+      <h1 class="font-bold">Fazendo</h1>
+      <span
+        class="text-xs font-semibold text-white bg-[#FF850A] py-1 px-2 rounded-xl"
+        >{{doingTasks.length}}</span
+      >
+    </div>
+    <div class="flex flex-col gap-4">
+      @for (doingTask of doingTasks; track doingTask.id) {
+        <app-task-card cdkDrag [cdkDragData]="doingTask" [task]="doingTask"/>
+      }
+    </div>
+  </div>
+  <!-- Coluna Concluído-->
+  <div
+    class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6"
+    id="done-column"
+    cdkDropList
+    #doneListCdkDropList="cdkDropList"
+    [cdkDropListData]="doneTasks"
+    [cdkDropListConnectedTo]="[todoListCdkDropList, doingListCdkDropList]"
+    (cdkDropListDropped)="onCardDrop($event)"
+  >
+    <div class="py-2 border-b border-[#D1D5D8] flex items-center gap-1">
+      <h1 class="font-bold">Concluído</h1>
+      <span
+        class="text-xs font-semibold text-white bg-[#15BE78] py-1 px-2 rounded-xl"
+        >{{doneTasks.length}}</span
+      >
+    </div>
+    <div class="flex flex-col gap-4">
+      @for (doneTask of doneTasks; track doneTask.id) {
+        <app-task-card cdkDrag [cdkDragData]="doneTask" [task]="doneTask"/>
+      }
+    </div>
+  </div>
+</div>
+
+@if(noTasksCreated) {
+  <div class="bg-[#FAFAFA] rounded-sm py-3 px-5 border-l-4 border-black">
+  <p class="font-semibold text-lg text-[#9CA3AF]">
+    Nenhuma tarefa disponível no momento.
+  </p>
+</div>
+}
+
