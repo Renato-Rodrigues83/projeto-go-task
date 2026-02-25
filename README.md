@@ -1,59 +1,46 @@
-# ProjetoGoTask
+# Projeto Go Task
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.18.
+Um projeto Angular 19 para gerenciamento de tarefas, utilizando Tailwind CSS para estilização.
 
-## Development server
+## Recursos
 
-To start a local development server, run:
+- Interface web para adicionar, listar e gerenciar tarefas
+- Design responsivo com Tailwind CSS
+- Estrutura baseada no Angular CLI
 
-```bash
-ng serve
-```
+## Instalação
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. Clone o repositório:
+   ```
+   git clone https://github.com/Renato-Rodrigues83/projeto-go-task.git
+   cd projeto-go-task
+   ```
 
-## Code scaffolding
+2. Instale as dependências:
+   ```
+   npm install
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+3. Execute o servidor de desenvolvimento:
+   ```
+   ng serve
+   ```
 
-```bash
-ng generate component component-name
-```
+   Abra o navegador em `http://localhost:4200/`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Uso
 
-```bash
-ng generate --help
-```
+- Adicione tarefas via interface
+- Liste e mova tarefas conforme forem concluídas
 
-## Building
+## Scripts Disponíveis
 
-To build the project run:
+- `ng serve`: Servidor de desenvolvimento
 
-```bash
-ng build
-```
+## Contribuição
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Envie issues ou pull requests.
 
-## Running unit tests
+## Licença
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT License
